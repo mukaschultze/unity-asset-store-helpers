@@ -29,12 +29,12 @@ public static class TestRunnerCallbacks {
         }
     };
 
-    [MenuItem("Automation/Edit Mode Tests", false, 300)]
+    [MenuItem("Common Helpers/Tests/Edit Mode", false, 300)]
     private static void RunEditModeTests() {
         RunTests(defaultCallbacks, TestMode.EditMode);
     }
 
-    [MenuItem("Automation/Play Mode Tests", false, 300)]
+    [MenuItem("Common Helpers/Tests/Play Mode", false, 300)]
     private static void RunPlayModeTests() {
         RunTests(defaultCallbacks, TestMode.PlayMode);
     }
