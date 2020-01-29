@@ -44,8 +44,8 @@ namespace SharedTools {
                 return;
             }
 
-            var link = EditorUtility.SaveFilePanel("Select folder to save link", "../Assets", "Fullscreen", "");
-            var target = Path.GetFullPath("Assets/Fullscreen");
+            var link = EditorUtility.SaveFilePanel("Select folder to save link", "../Assets", SharedToolsMetadata.ST_PLUGIN_NAME, "");
+            var target = Path.GetFullPath(SharedToolsMetadata.ST_ROOT_FOLDER);
 
             if (string.IsNullOrEmpty(link))
                 return;

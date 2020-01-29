@@ -73,7 +73,7 @@ namespace SharedTools {
                 After.Condition(
                     () => File.Exists(package),
                     () => {
-                        var dst = string.Format("Releases/fullscreen-editor-v{0}.unitypackage", Versioning.CurrentVersion);
+                        var dst = string.Format("Releases/{1}-v{0}.unitypackage", Versioning.CurrentVersion, SharedToolsMetadata.ST_PLUGIN_SLUG);
 
                         if (File.Exists(dst)) {
                             if (new FileInfo(dst).Length == new FileInfo(package).Length)
