@@ -16,6 +16,7 @@ namespace SharedTools {
         private static readonly string[] foldersToLink = new [] {
             // Must be root folder
             SharedToolsMetadata.ST_ROOT_FOLDER.Replace("/", "\\"),
+            @"Assets\Editor",
             @"Assets\Tests",
             @"Assets\SharedTools",
         };
