@@ -8,6 +8,11 @@ namespace SharedTools {
     /// <summary>Helper class for enabling/disabling compilation symbols.</summary>
     public static class Integration {
 
+        [InitializeOnLoadMethod]
+        private static void AddToolsFlag() {
+            SetDirectiveDefined("SHARED_TOOLS", true);
+        }
+
         private static string[] GetAllDefines() {
             var currentBuildTarget = EditorUserBuildSettings.selectedBuildTargetGroup;
             var scriptDefines = PlayerSettings.GetScriptingDefineSymbolsForGroup(currentBuildTarget);

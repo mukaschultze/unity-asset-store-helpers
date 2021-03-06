@@ -1,0 +1,16 @@
+{
+  "name": "muka-schultze.unity-asset-store-helpers",
+  "displayName": "Unity Asset Store Helpers",
+  "version": "1.0.0",
+  "author": "Muka Schultze",
+  "description": "Asset Store tools shared across projects",
+  "license": "MIT",
+  "type": "tool",
+  "repository": "https://github.com/mukaschultze/unity-asset-store-helpers",
+  "homepage": "https://github.com/mukaschultze/unity-asset-store-helpers",
+  "bugs": "https://github.com/mukaschultze/unity-asset-store-helpers/issues",
+  "dependencies": {
+    "com.unity.test-framework": "1.1.24",
+    "com.unity.postprocessing": "2.2.2"
+  }
+}
