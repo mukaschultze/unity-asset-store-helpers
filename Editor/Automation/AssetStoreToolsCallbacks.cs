@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using UnityEditor;
+using Debug = UnityEngine.Debug;
 
 namespace SharedTools {
     public class AssetStoreToolsCallbacks {
@@ -83,21 +84,31 @@ namespace SharedTools {
 
             var methods = new [] {
                 "OnAssetsUploaded",
-                "OnUploadAssetBundlesFinished",
+                // "OnUploadAssetBundlesFinished",
                 "Export",
                 "Upload",
-                "UploadAssetBundles",
+                // "UploadAssetBundles",
                 "OnAssetsUploading",
                 "OnUploadSuccessfull",
                 "OnSubmitionFail",
             };
 
             foreach (var method in methods) {
-                patchers[method] = new Patcher(
-                    FindMethod(AssetStorePackageController, method),
-                    FindMethod(typeof(AssetStoreToolsCallbacks), method)
-                );
-                patchers[method].SwapMethods();
+                var source = FindMethod(AssetStorePackageController, method);
+                var target = FindMethod(typeof(AssetStoreToolsCallbacks), method);
+
+                if (source == null)
+                    Debug.LogErrorFormat("Source method not found in {1}: {0}", method, AssetStorePackageController.Name);
+                if (target == null)
+                    Debug.LogErrorFormat("Target method not found in {1}: {0}", method, typeof(AssetStoreToolsCallbacks).Name);
+
+                try {
+                    patchers[method] = new Patcher(source, target);
+                    patchers[method].SwapMethods();
+                } catch (Exception ex) {
+                    Debug.LogException(ex);
+                    Debug.LogError("Failed to patch method " + method);
+                }
             }
         }
 
