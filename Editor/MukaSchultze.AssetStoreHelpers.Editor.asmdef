@@ -13,7 +13,6 @@
     "overrideReferences": true,
     "precompiledReferences": [
         "nunit.framework.dll",
-        "AssetStoreTools.dll"
     ],
     "autoReferenced": true,
     "defineConstraints": [],
