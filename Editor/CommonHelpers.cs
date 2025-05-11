@@ -64,16 +64,5 @@ namespace SharedTools {
             Cmd.Run("git tag -f -a -m \"Version {0}\" v{0}", version);
             Cmd.Run("git push --tags"); // This will cause a release in Travis CI
         }
-
-        [MenuItem("Common Helpers/Self/Update")]
-        private static void UpdateSharedTools() {
-            Cmd.Run("cd Assets/SharedTools && git pull origin master");
-        }
-
-        [MenuItem("Common Helpers/Self/Push changes")]
-        private static void UploadSharedTools() {
-            Cmd.Run("cd Assets/SharedTools && git push origin HEAD:master");
-        }
-
     }
 }
